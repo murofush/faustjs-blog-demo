@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+   "stylelint.vscode-stylelint",
+   "dsznajder.es7-react-js-snippets",
+   "dbaeumer.vscode-eslint",
+   "esbenp.prettier-vscode"
+  ]
+}

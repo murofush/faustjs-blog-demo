@@ -1,0 +1,97 @@
+// Post CSS Design
+.content {
+  @apply overflow-hidden leading-7;
+
+  & > *:first-child {
+    @apply mt-2;
+  }
+
+  & > *:last-child {
+    @apply mb-2;
+  }
+  p,
+  ul,
+  ol,
+  blockquote {
+    @apply mt-6 mb-8;
+  }
+  a {
+    @apply no-underline text-link;
+    background: linear-gradient(transparent 90%, theme('colors.link-bg') 80%);
+    // 現在、CSSModuleで:darkの読み込みができない問題があるので妥協案。解決したら対応する。
+    // https://github.com/tailwindlabs/tailwindcss/issues/3258
+    :global(.dark) & {
+      @apply text-link-dark;
+      background: linear-gradient(
+        transparent 80%,
+        theme('colors.link-bg-dark') 80%
+      );
+    }
+    &:hover {
+      background: linear-gradient(
+        transparent 90%,
+        theme('colors.link-bg-hover') 90%
+      );
+    }
+    &[target='_blank']:after {
+      font-family: 'Font Awesome 5 Free';
+      content: '\f35d';
+      font-size: 0.9em;
+      margin: 0px 3px;
+      font-weight: 900;
+    }
+  }
+  ul,
+  ol {
+    @apply pl-8;
+  }
+  ul {
+    @apply list-disc;
+  }
+  ol {
+    @apply list-decimal;
+  }
+  ul > li > ul,
+  ol > li > ol {
+    @apply my-0 ml-4;
+  }
+  ul > li > ul {
+    list-style: circle;
+  }
+  h1 {
+    @apply text-3xl mt-14 mb-12 pb-1 font-bold leading-snug border-b-2 border-primary border-opacity-50;
+  }
+  h2 {
+    @apply text-2xl mt-12  mb-8 pb-1 font-bold leading-snug border-b  border-opacity-30;
+  }
+  h3 {
+    @apply text-xl mt-8  mb-6 font-bold leading-snug;
+  }
+  h4 {
+    @apply text-base mt-8  mb-6 font-bold leading-snug;
+  }
+  :not(pre) > code {
+    @apply bg-opacity-20 bg-gray-500 px-1 italic;
+  }
+  figcaption {
+    @apply text-center;
+  }
+  blockquote {
+    @apply border-l-4 border-primary bg-primary bg-opacity-10 italic ml-0 py-4 px-6 rounded-r-md;
+    :global(.dark) & {
+      @apply bg-primary bg-opacity-20;
+    }
+    p {
+      @apply mt-0;
+    }
+    cite {
+      @apply not-italic text-sm;
+      & p {
+        @apply mb-0;
+      }
+    }
+  }
+  audio {
+    @apply w-full;
+  }
+}

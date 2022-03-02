@@ -1,0 +1,92 @@
+// Page CSS Design
+.content {
+  @apply mb-8  overflow-hidden;
+  &:first-child {
+    @apply mt-0;
+  }
+  &:last-child {
+    @apply mb-0;
+  }
+  p,
+  ul,
+  ol,
+  blockquote {
+    @apply mt-2 mb-4;
+  }
+  a {
+    @apply no-underline text-link;
+    background: linear-gradient(transparent 90%, theme('colors.link-bg') 80%);
+    // 現在、CSSModuleで:darkの読み込みができない問題があるので妥協案。解決したら対応する。
+    // https://github.com/tailwindlabs/tailwindcss/issues/3258
+    :global(.dark) & {
+      @apply text-link-dark;
+      background: linear-gradient(
+        transparent 80%,
+        theme('colors.link-bg-dark') 80%
+      );
+    }
+    &:hover {
+      background: linear-gradient(
+        transparent 90%,
+        theme('colors.link-bg-hover') 90%
+      );
+    }
+    &[target='_blank']:after {
+      font-family: 'Font Awesome 5 Free';
+      content: '\f35d';
+      font-size: 0.9em;
+      margin: 0px 3px;
+      font-weight: 900;
+    }
+  }
+  ul,
+  ol {
+    @apply pl-8;
+  }
+  ul {
+    @apply list-disc;
+  }
+  ol {
+    @apply list-decimal;
+  }
+  ul > li > ul,
+  ol > li > ol {
+    @apply my-0 ml-4;
+  }
+  ul > li > ul {
+    list-style: circle;
+  }
+  h1 {
+    @apply text-3xl mt-12 mb-4 pb-1 font-bold leading-snug;
+  }
+  h2 {
+    @apply text-xl mt-10 mb-3 pb-1 font-bold leading-snug;
+  }
+  h3 {
+    @apply text-lg mt-8  mb-2 font-bold leading-snug;
+  }
+  h4 {
+    @apply text-base mt-8  mb-2 leading-snug;
+  }
+  :not(pre) > code {
+    @apply bg-opacity-20 bg-gray-500 px-1 italic;
+  }
+  figcaption {
+    @apply text-center;
+  }
+  blockquote {
+    @apply border-l-4 border-primary bg-primary bg-opacity-10 italic ml-0 py-4 px-6 rounded-r-md;
+    :global(.dark) & {
+      @apply bg-primary bg-opacity-20;
+    }
+    p {
+      @apply mt-0;
+    }
+    cite {
+      @apply not-italic text-sm;
+    }
+  }
+  audio {
+    @apply w-full;
+  }
+}

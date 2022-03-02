@@ -1,0 +1,9 @@
+{
+  "contentSpacingX": "3rem",
+  "contentSpacingY": "2rem",
+  "innerContentSpacing": "0.5rem",
+
+  "cardPadding": "1rem",
+  "headerPadding": "8px",
+  "headerToSpacing": "80px"
+}

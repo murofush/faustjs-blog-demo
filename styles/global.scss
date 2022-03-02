@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+:root {
+  --header-height: 3.75rem;
+  font-size: 15px;
+}
+html {
+  scroll-padding-top: 80px;
+}
+body {
+  @apply font-sans text-base leading-relaxed;
+}
+
+.has-text-align-left {
+  @apply text-left;
+}
+
+.has-text-align-center {
+  @apply text-center;
+}
+
+.has-text-align-right {
+  @apply text-right;
+}
+
+.has-large-font-size {
+  @apply text-4xl;
+}
+
+.alignleft {
+  @apply float-left mr-4;
+}
+.alignright {
+  @apply float-right ml-4;
+}
+.aligncenter {
+  @apply m-auto;
+}
+
+.alignfull {
+  @apply w-screen relative;
+
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  right: 50%;
+}
+
+.wp-block-image img {
+  @apply min-w-min max-w-full mt-2;
+}
+.wp-block-image.aligncenter {
+  @apply text-center;
+}
+.wp-block-image.alignfull img,
+.wp-block-image.alignwide img {
+  @apply w-full;
+}
+.wp-block-image .alignleft,
+.wp-block-image .alignright,
+.wp-block-image .aligncenter,
+.wp-block-image.is-resized {
+  @apply table ml-0 mr-0;
+}
+.wp-block-image .alignleft > figcaption,
+.wp-block-image .alignright > figcaption,
+.wp-block-image .aligncenter > figcaption,
+.wp-block-image.is-resized > figcaption {
+  @apply table-caption;
+
+  caption-side: bottom;
+}
+.wp-block-button a,
+.wp-block-file a.wp-block-file__button {
+  @apply bg-blue-500 text-white no-underline py-2 px-4;
+}
+
+.wp-block-button a:hover,
+.wp-block-file a.wp-block-file__button:hover {
+  @apply bg-blue-400 cursor-pointer;
+}
+
+.wp-block-file a:first-of-type {
+  @apply mr-4;
+}
+
+.wp-block-cover {
+  @apply flex flex-wrap justify-center items-center bg-cover bg-center overflow-hidden;
+
+  min-height: 4.3rem;
+}
+
+.wp-block-verse {
+  @apply font-sans;
+}
+
+.wp-block-media-text {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.wp-block-columns {
+  @apply flex items-center box-border flex-wrap;
+  /**
+  * All Columns Alignment
+  */
+}
+
+.wp-block-column {
+  @apply flex-grow-0;
+  @screen max-sm {
+    // screen: sm未満の場合はWordPressから返されるCSSを上書きする。
+    flex-basis: 100% !important;
+  }
+  &:not(:only-child) {
+    @screen only-md {
+      // screen: sm未満の場合はWordPressから返されるCSSを上書きする。
+      flex-basis: 50% !important;
+    }
+  }
+  & .wp-block-image > img {
+    @apply min-w-0;
+  }
+}
+
+.wp-block-column:not(:first-child) {
+  @screen sm {
+    @apply pl-8;
+  }
+}
+
+.wp-block-separator {
+  @apply mt-4 mb-8;
+}
+
+kbd {
+  @apply py-2 px-2 text-black bg-white border border-gray-200 border-solid rounded-md text-sm;
+  box-shadow: 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.code_copy_button {
+  @apply rounded-md inline-flex items-center z-10 px-2 py-1 mt-2 mr-2;
+  .code_copy_button_icon {
+    @apply mr-1;
+  }
+  &:hover {
+    @apply bg-gray-700;
+  }
+  &.on_copied {
+    @apply bg-primary;
+  }
+}
+
+.wp-block-code {
+  @apply relative whitespace-pre text-sm overflow-x-auto p-4 leading-snug border text-gray-100 border-gray-200 border-opacity-30 bg-black bg-opacity-70 rounded-md shadow-inner;
+}
+
+.wp-block-embed__wrapper {
+  @apply relative w-full h-auto left-0 right-0 m-auto;
+  min-width: 400px;
+  max-width: 1100px;
+  &:before {
+    @apply block;
+    content: '';
+    padding-top: 56.25%;
+  }
+}
+
+.wp-block-embed__wrapper iframe {
+  @apply absolute top-0 left-0 right-0 w-full h-full;
+}
+
+/**
+* テーマに関しては https://yosiakatsuki.net/blog/gutenberg-editor-color-palette/ を参考に WordPressに実装する。
+*/
+// CUSTOM COLOR
+.has-dark-gray-color {
+  color: #555;
+}
+
+.has-dark-gray-background-color {
+  background-color: #555;
+}
+
+.has-medium-gray-color {
+  color: #aaa;
+}
+
+.has-medium-gray-background-color {
+  background-color: #aaa;
+}
+
+.has-light-gray-color {
+  color: #eee;
+}
+
+.has-light-gray-background-color {
+  background-color: #eee;
+}
+
+/*スクロールバー全体*/
+/* stylelint-disable-next-line no-descending-specificity */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/*スクロールバーの軌道*/
+/* stylelint-disable-next-line no-descending-specificity */
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+/*スクロールバーの動く部分*/
+/* stylelint-disable-next-line no-descending-specificity */
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 bg-opacity-70;
+  border-radius: 10px;
+}

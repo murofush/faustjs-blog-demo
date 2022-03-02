@@ -1,0 +1,30 @@
+{
+  "plugin": ["stylelint-scss", "stylelint-order"],
+  "extends": [
+    "stylelint-config-recommended-scss",
+    "stylelint-config-recommended",
+    "stylelint-config-prettier"
+  ],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind", "apply", "screen"]
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "block-no-empty": null,
+    "font-family-no-missing-generic-family-keyword": [
+      true,
+      {
+        "ignoreFontFamilies": ["Font Awesome 5 Free"]
+      }
+    ]
+  }
+}
