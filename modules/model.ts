@@ -20,7 +20,6 @@ export interface Post {
   content: string
   categories: Category[]
   tags: Tag[]
-  relatedPosts: Post[]
   slug: string
   thumbnailSrc: string
   createdDate: Nullable<string>

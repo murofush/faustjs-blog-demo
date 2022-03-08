@@ -66,7 +66,6 @@ export function _generateMockPosts(length = 3, opt?: option): Post[] {
         : content,
       categories: _generateMockCategories(1, opt),
       tags: _generateMockTags(opt?.largeValue ? 20 : 2, opt),
-      relatedPosts: [],
       thumbnailSrc: 'https://placehold.jp/800x600.png',
       createdDate: new Date().toISOString(),
       updatedDate: new Date().toISOString()

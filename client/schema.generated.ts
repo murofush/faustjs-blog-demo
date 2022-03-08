@@ -882,8 +882,6 @@ export enum MediaItemSizeEnum {
   MEDIUM_LARGE = 'MEDIUM_LARGE',
   /** MediaItem with the thumbnail size */
   THUMBNAIL = 'THUMBNAIL',
-  /** MediaItem with the yarpp-thumbnail size */
-  YARPP_THUMBNAIL = 'YARPP_THUMBNAIL',
   /** MediaItem with the 1536x1536 size */
   _1536X1536 = '_1536X1536',
   /** MediaItem with the 2048x2048 size */
@@ -1934,12 +1932,6 @@ export interface RegisterUserInput {
   websiteUrl?: InputMaybe<Scalars['String']>
   /** User's Yahoo IM account. */
   yim?: InputMaybe<Scalars['String']>
-}
-
-/** Arguments for filtering the RelatedPostsConnection connection */
-export interface RelatedPostsConnectionWhereArgs {
-  /** Override's YARPP setting's "Maximum number of related posts." The maximum number is 20. */
-  limit?: InputMaybe<Scalars['Int']>
 }
 
 /** The logical relation between each item in the array when there are more than one. */
@@ -4996,16 +4988,6 @@ export const generatedSchema = {
     preview: { __type: 'PostToPreviewConnectionEdge' },
     previewRevisionDatabaseId: { __type: 'Int' },
     previewRevisionId: { __type: 'ID' },
-    relatedPosts: {
-      __type: 'RelatedPostsConnection',
-      __args: {
-        after: 'String',
-        before: 'String',
-        first: 'Int',
-        last: 'Int',
-        where: 'RelatedPostsConnectionWhereArgs'
-      }
-    },
     revisionOf: { __type: 'NodeWithRevisionsToContentNodeConnectionEdge' },
     revisions: {
       __type: 'PostToRevisionConnection',
@@ -5522,18 +5504,6 @@ export const generatedSchema = {
     clientMutationId: { __type: 'String' },
     user: { __type: 'User' }
   },
-  RelatedPostsConnection: {
-    __typename: { __type: 'String!' },
-    edges: { __type: '[RelatedPostsConnectionEdge]' },
-    nodes: { __type: '[Post]' },
-    pageInfo: { __type: 'WPPageInfo' }
-  },
-  RelatedPostsConnectionEdge: {
-    __typename: { __type: 'String!' },
-    cursor: { __type: 'String' },
-    node: { __type: 'Post' }
-  },
-  RelatedPostsConnectionWhereArgs: { limit: { __type: 'Int' } },
   ResetUserPasswordInput: {
     clientMutationId: { __type: 'String' },
     key: { __type: 'String' },
@@ -11441,31 +11411,6 @@ export interface Post {
    */
   previewRevisionId?: Maybe<ScalarsEnums['ID']>
   /**
-   * Connection between the Post type and the Post type
-   */
-  relatedPosts: (args?: {
-    /**
-     * Cursor used along with the "first" argument to reference where in the dataset to get data
-     */
-    after?: Maybe<Scalars['String']>
-    /**
-     * Cursor used along with the "last" argument to reference where in the dataset to get data
-     */
-    before?: Maybe<Scalars['String']>
-    /**
-     * The number of items to return after the referenced "after" cursor
-     */
-    first?: Maybe<Scalars['Int']>
-    /**
-     * The number of items to return before the referenced "before" cursor
-     */
-    last?: Maybe<Scalars['Int']>
-    /**
-     * Arguments for filtering the connection
-     */
-    where?: Maybe<RelatedPostsConnectionWhereArgs>
-  }) => Maybe<RelatedPostsConnection>
-  /**
    * If the current node is a revision, this field exposes the node this is a revision of. Returns null if the node is not a revision of another node.
    */
   revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>
@@ -12219,40 +12164,6 @@ export interface RegisterUserPayload {
    * The User object mutation type.
    */
   user?: Maybe<User>
-}
-
-/**
- * Connection between the Post type and the Post type
- */
-export interface RelatedPostsConnection {
-  __typename?: 'RelatedPostsConnection'
-  /**
-   * Edges for the RelatedPostsConnection connection
-   */
-  edges?: Maybe<Array<Maybe<RelatedPostsConnectionEdge>>>
-  /**
-   * The nodes of the connection, without the edges
-   */
-  nodes?: Maybe<Array<Maybe<Post>>>
-  /**
-   * Information about pagination in a connection.
-   */
-  pageInfo?: Maybe<WPPageInfo>
-}
-
-/**
- * An edge in a connection
- */
-export interface RelatedPostsConnectionEdge {
-  __typename?: 'RelatedPostsConnectionEdge'
-  /**
-   * A cursor for use in pagination
-   */
-  cursor?: Maybe<ScalarsEnums['String']>
-  /**
-   * The item at the end of the edge
-   */
-  node?: Maybe<Post>
 }
 
 /**
@@ -15227,8 +15138,6 @@ export interface SchemaObjectTypes {
   Query: Query
   ReadingSettings: ReadingSettings
   RegisterUserPayload: RegisterUserPayload
-  RelatedPostsConnection: RelatedPostsConnection
-  RelatedPostsConnectionEdge: RelatedPostsConnectionEdge
   ResetUserPasswordPayload: ResetUserPasswordPayload
   RestoreCommentPayload: RestoreCommentPayload
   RootQueryToCategoryConnection: RootQueryToCategoryConnection
@@ -15457,8 +15366,6 @@ export type SchemaObjectTypesNames =
   | 'Query'
   | 'ReadingSettings'
   | 'RegisterUserPayload'
-  | 'RelatedPostsConnection'
-  | 'RelatedPostsConnectionEdge'
   | 'ResetUserPasswordPayload'
   | 'RestoreCommentPayload'
   | 'RootQueryToCategoryConnection'

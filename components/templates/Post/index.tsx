@@ -26,7 +26,6 @@ export const Post = React.memo(function Post({
   const postTags = post.tags
   const postDate = post.createdDate
   const coverImgSrc = post.thumbnailSrc
-  const relatedPosts = post.relatedPosts ?? []
 
   const postContentWidth = '1000px'
   const leftContentExpandWidth = '300px'
@@ -50,7 +49,6 @@ export const Post = React.memo(function Post({
           top="headerHeight"
           h="100vh"
           borderRightWidth="1px"
-          relatedPosts={relatedPosts}
           pt="1rem"
           categories={categories}
           recentPosts={recentPosts}
@@ -90,7 +88,6 @@ export const Post = React.memo(function Post({
             pt="12"
             px="2"
             w="full"
-            relatedPosts={relatedPosts}
             recentPosts={recentPosts}
           ></PostBottom>
         </VStack>

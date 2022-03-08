@@ -11,13 +11,11 @@ const Template: Story<React.ComponentProps<typeof PostBottom>> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  relatedPosts: _generateMockPosts(3),
   recentPosts: _generateMockPosts(3)
 }
 
 export const LargeValue = Template.bind({})
 LargeValue.args = {
-  relatedPosts: _generateMockPosts(3, { largeValue: true }),
   recentPosts: _generateMockPosts(3, {
     largeValue: true
   })

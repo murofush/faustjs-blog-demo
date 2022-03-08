@@ -41,9 +41,6 @@ export function convertPostFromGqty(
   const subId = opt?.subId ?? 0
   const postSeo = post?.seo
   const postFeaturesImage = post?.featuredImage?.node
-  const relatedPosts = convertPostsFromGqty(
-    post?.relatedPosts({ where: { limit: fetchDefaultPostNum } })?.nodes
-  )
   return {
     id: post?.postId ?? subId,
     title: post?.title() ?? '-',
@@ -51,7 +48,6 @@ export function convertPostFromGqty(
     content: post?.content() ?? '',
     categories: convertCategoriesFromGqty(post?.categories()?.nodes ?? []),
     tags: convertTagsFromGqty(post?.tags()?.nodes ?? []),
-    relatedPosts: opt?.excludeChild ? [] : relatedPosts,
     slug: post?.slug ?? '',
     thumbnailSrc: postFeaturesImage?.sourceUrl() ?? '/img/coverImage.png',
     createdDate: post?.date,
