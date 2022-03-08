@@ -5,11 +5,11 @@ However, replacing the code in `/posts/[postSlug]/index.tx` with the following w
 
 ````
   const post = convertPostFromGqty(gqtyPost)
-  const categories = convertCategoriesFromGqty(gqtyCategories)
+  const posts = convertPostsFromGqty(gqtyPosts)
 ````
 to
 ```
-  const categories = convertCategoriesFromGqty(gqtyCategories)
+  const posts = convertPostsFromGqty(gqtyPosts)
   const post = convertPostFromGqty(gqtyPost) // refer to Post at the end.
 ```
 
