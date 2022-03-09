@@ -42,8 +42,9 @@ export default function Page() {
   const gqtyPost = client.usePost()
   const gqtyRecentPosts = client.usePosts()?.nodes
   // const gqtyCategories = useCategories(client)
-  const post = convertPostFromGqty(gqtyPost)
   const recentPosts = convertPostsFromGqty(gqtyRecentPosts)
+  // Changed to place under `const recentPosts = convertPostsFromGqty(gqtyRecentPosts)`.
+  const post = convertPostFromGqty(gqtyPost)
   // const categories = convertCategoriesFromGqty(gqtyCategories)
   const categories: Category[] = []
   return (
