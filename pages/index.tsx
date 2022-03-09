@@ -12,14 +12,18 @@ import {
   convertPostsFromGqty
 } from 'modules/converter'
 import { Home } from 'components/templates/Home'
+import { Category, Tag } from 'modules/model'
 export default function Page() {
-  const gqtyCategories = useCategories(client)
-  const gqtyTags = useTags(client)
+  // const gqtyCategories = useCategories(client)
+  // const gqtyTags = useTags(client)
   const gqtyPosts = client.usePosts()?.nodes
   const gqtyGeenralSettings = client.useQuery().generalSettings
 
-  const categories = convertCategoriesFromGqty(gqtyCategories)
-  const tags = convertTagsFromGqty(gqtyTags)
+  // const categories = convertCategoriesFromGqty(gqtyCategories)
+  // const tags = convertTagsFromGqty(gqtyTags)
+  const categories: Category[] = []
+  const tags: Tag[] = []
+
   const posts = convertPostsFromGqty(gqtyPosts)
   const generalSettings = convertGeneralSettings(gqtyGeenralSettings)
 

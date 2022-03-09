@@ -12,6 +12,7 @@ import {
   convertPostsFromGqty
 } from 'modules/converter'
 import { CategorySearchResult } from 'components/templates/CategorySearchResult'
+import { Category } from 'modules/model'
 
 export default function Page() {
   // For some reason, when useCategory and useCategories coexist and data is acquired, problems occur around Cache, so we do not use them.

@@ -39,9 +39,10 @@ export function PageComponent(props: PageProps) {
 
 export default function Page() {
   const gqtyPage = client.usePage()
-  const gqtyCategories = useCategories(client)
+  // const gqtyCategories = useCategories(client)
   const page = convertPageFromGqty(gqtyPage)
-  const categories = convertCategoriesFromGqty(gqtyCategories)
+  // const categories = convertCategoriesFromGqty(gqtyCategories)
+  const categories: Category[] = []
 
   return <PageComponent page={page} categories={categories} />
 }

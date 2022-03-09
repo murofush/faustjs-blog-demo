@@ -13,6 +13,7 @@ import {
 } from 'modules/converter'
 import { Post as PostType, Category } from 'modules/model'
 
+// Comment out useCategories once to identify the cause
 export interface PostProps {
   post: PostType
   categories: Category[]
@@ -40,10 +41,11 @@ export function PageComponent(props: PostProps) {
 export default function Page() {
   const gqtyPost = client.usePost()
   const gqtyRecentPosts = client.usePosts()?.nodes
-  const gqtyCategories = useCategories(client)
+  // const gqtyCategories = useCategories(client)
   const post = convertPostFromGqty(gqtyPost)
   const recentPosts = convertPostsFromGqty(gqtyRecentPosts)
-  const categories = convertCategoriesFromGqty(gqtyCategories)
+  // const categories = convertCategoriesFromGqty(gqtyCategories)
+  const categories: Category[] = []
   return (
     <PageComponent
       post={post}
