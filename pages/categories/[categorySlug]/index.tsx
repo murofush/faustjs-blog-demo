@@ -14,7 +14,8 @@ import {
 import { CategorySearchResult } from 'components/templates/CategorySearchResult'
 
 export default function Page() {
-  // 現状、なぜか useCategoryからデータを取得するとCache周りで不具合が発生するので使わない。
+  // For some reason, when useCategory and useCategories coexist and data is acquired, problems occur around Cache, so we do not use them.
+  // There is probably the same possibility that usePost and usePosts cause the same problem, but this one can be safely avoided, so we will ignore it for now.
   const { query } = useRouter()
   const categorySlug = hasCategorySlug(query) ? query.categorySlug : undefined
 

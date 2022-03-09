@@ -37,7 +37,6 @@ export function PageComponent(props: PostProps) {
   )
 }
 
-// The same problem occurred for both recentPosts and relatedPosts, but we have commented out recentPosts to narrow down the cause.
 export default function Page() {
   const gqtyPost = client.usePost()
   const gqtyRecentPosts = client.usePosts()?.nodes
